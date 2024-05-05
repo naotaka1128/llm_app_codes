@@ -1,0 +1,22 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+	"name": "Streamlit Container (Python 3.9)",
+	"build": { 
+		"context": "..",
+		// "dockerfile": "Dockerfile_cpu"
+		"dockerfile": "Dockerfile"
+	},
+	"forwardPorts": [
+		8501
+	],
+	"customizations": {
+    "vscode": {
+      "settings": {},
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+      ]
+    }
+  }
+}
