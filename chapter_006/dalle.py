@@ -37,7 +37,7 @@ def main():
 
     llm = ChatOpenAI(
         temperature=0,
-        model="gpt-4-turbo",
+        model="gpt-4o",
         # なぜかmax_tokensないとたまに挙動が不安定になる (2024年5月現在)
         max_tokens=512
     )

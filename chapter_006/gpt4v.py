@@ -20,7 +20,7 @@ def main():
 
     llm = ChatOpenAI(
         temperature=0,
-        model="gpt-4-turbo",
+        model="gpt-4o",
         # なぜかmax_tokensないと挙動が安定しない (2024年2月現在)
         # 著しく短い回答になったり、途中で回答が途切れたりする。
         max_tokens=512

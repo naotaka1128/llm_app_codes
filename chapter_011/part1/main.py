@@ -81,7 +81,7 @@ def select_model():
             temperature=0, model_name="gpt-3.5-turbo")
     elif model == "GPT-4":
         return ChatOpenAI(
-            temperature=0, model_name="gpt-4-turbo")
+            temperature=0, model_name="gpt-4o")
     elif model == "Claude 3 Sonnet":
         return ChatAnthropic(
             temperature=0, model_name="claude-3-sonnet-20240229")

@@ -1,8 +1,8 @@
 # chapter 1
-openai==1.23.1
+openai==1.29.0
 anthropic==0.25.7
 google-generativeai==0.5.2
-tiktoken==0.6.0
+tiktoken==0.7.0
 streamlit==1.33.0
 langchain==0.1.16
 langchain-community==0.0.34
@@ -32,7 +32,7 @@ langsmith==0.1.54
 # chapter 9
 duckduckgo_search==4.2
 html2text==2020.1.16
-lxml==5.2.1
+lxml[html_clean]==5.2.1
 readability-lxml==0.8.1
 
 # chapter 10

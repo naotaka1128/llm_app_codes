@@ -15,13 +15,13 @@ load_dotenv()
 MODEL_PRICES = {
     "input": {
         "gpt-3.5-turbo": 0.5 / 1_000_000,
-        "gpt-4-turbo": 10 / 1_000_000,
+        "gpt-4o": 5 / 1_000_000,
         "claude-3-sonnet-20240229": 3 / 1_000_000,
         "gemini-1.5-pro-latest": 2.5 / 1_000_000
     },
     "output": {
         "gpt-3.5-turbo": 1.5 / 1_000_000,
-        "gpt-4-turbo": 30 / 1_000_000,
+        "gpt-4o": 15 / 1_000_000,
         "claude-3-sonnet-20240229": 15 / 1_000_000,
         "gemini-1.5-pro-latest": 7.5 / 1_000_000
     }
@@ -61,7 +61,7 @@ def select_model():
             model_name=st.session_state.model_name
         )
     elif model == "GPT-4":
-        st.session_state.model_name = "gpt-4-turbo"
+        st.session_state.model_name = "gpt-4o"
         return ChatOpenAI(
             temperature=temperature,
             model_name=st.session_state.model_name

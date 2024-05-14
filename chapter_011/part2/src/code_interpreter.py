@@ -56,7 +56,7 @@ class CodeInterpreterClient:
             description=None,
             instructions='You are a python code runner. Write and run code to answer questions.',
             metadata={},
-            model='gpt-4-turbo',
+            model='gpt-4o',
             name='Python Code Runner',
             object='assistant',
             tools=[
@@ -75,7 +75,7 @@ class CodeInterpreterClient:
             name="Python Code Runner",
             instructions="You are a python code runner. Write and run code to answer questions.",
             tools=[{"type": "code_interpreter"}],
-            model="gpt-4-turbo",
+            model="gpt-4o",
             tool_resources={
                 "code_interpreter": {
                     "file_ids": self.file_ids
@@ -139,7 +139,7 @@ class CodeInterpreterClient:
         Assistants API Response Example
         ===============
         Message(id='msg_mzx4vA5cS8kuzLfpeALC049M', assistant_id=None, attachments=[], completed_at=None, content=[TextContentBlock(text=Text(annotations=[], value='I need to solve the equation `3x + 11 = 14`. Can you help me?'), type='text')], created_at=1713526391, incomplete_at=None, incomplete_details=None, metadata={}, object='thread.message', role='user', run_id=None, status=None, thread_id='thread_dmhWy82iU3S97MMdWk5Bzkc7')
-        Run(id='run_ox2vsSkPB0VMViuMOnVXGlzH', assistant_id='asst_tXog4eZKOLIal42dO5nQQISB', cancelled_at=None, completed_at=1713526496, created_at=1713526488, expires_at=None, failed_at=None, incomplete_details=None, instructions='Please address the user as Jane Doe. The user has a premium account.', last_error=None, max_completion_tokens=None, max_prompt_tokens=None, metadata={}, model='gpt-4-turbo', object='thread.run', required_action=None, response_format='auto', started_at=1713526489, status='completed', thread_id='thread_dmhWy82iU3S97MMdWk5Bzkc7', tool_choice='auto', tools=[CodeInterpreterTool(type='code_interpreter')], truncation_strategy=TruncationStrategy(type='auto', last_messages=None), usage=Usage(completion_tokens=151, prompt_tokens=207, total_tokens=358), temperature=1.0, top_p=1.0, tool_resources={})
+        Run(id='run_ox2vsSkPB0VMViuMOnVXGlzH', assistant_id='asst_tXog4eZKOLIal42dO5nQQISB', cancelled_at=None, completed_at=1713526496, created_at=1713526488, expires_at=None, failed_at=None, incomplete_details=None, instructions='Please address the user as Jane Doe. The user has a premium account.', last_error=None, max_completion_tokens=None, max_prompt_tokens=None, metadata={}, model='gpt-4o', object='thread.run', required_action=None, response_format='auto', started_at=1713526489, status='completed', thread_id='thread_dmhWy82iU3S97MMdWk5Bzkc7', tool_choice='auto', tools=[CodeInterpreterTool(type='code_interpreter')], truncation_strategy=TruncationStrategy(type='auto', last_messages=None), usage=Usage(completion_tokens=151, prompt_tokens=207, total_tokens=358), temperature=1.0, top_p=1.0, tool_resources={})
 
         
         >> message
