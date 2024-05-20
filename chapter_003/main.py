@@ -17,13 +17,13 @@ MODEL_PRICES = {
         "gpt-3.5-turbo": 0.5 / 1_000_000,
         "gpt-4o": 5 / 1_000_000,
         "claude-3-sonnet-20240229": 3 / 1_000_000,
-        "gemini-1.5-pro-latest": 2.5 / 1_000_000
+        "gemini-1.5-pro-latest": 3.5 / 1_000_000
     },
     "output": {
         "gpt-3.5-turbo": 1.5 / 1_000_000,
         "gpt-4o": 15 / 1_000_000,
         "claude-3-sonnet-20240229": 15 / 1_000_000,
-        "gemini-1.5-pro-latest": 7.5 / 1_000_000
+        "gemini-1.5-pro-latest": 10.5 / 1_000_000
     }
 }
 
@@ -81,18 +81,18 @@ def select_model():
 
 
 def init_chain():
-    llm = select_model()
+    st.session_state.llm = select_model()
     prompt = ChatPromptTemplate.from_messages([
         *st.session_state.message_history,
         ("user", "{user_input}")  # ここにあとでユーザーの入力が入る
     ])
     output_parser = StrOutputParser()
-    return prompt | llm | output_parser
+    return prompt | st.session_state.llm | output_parser
 
 
 def get_message_counts(text):
     if "gemini" in st.session_state.model_name:
-        return len(text)  # 文字数をカウント
+        return st.session_state.llm.get_num_tokens(text)
     else:
         # Claude 3 はトークナイザーを公開していないので、tiktoken を使ってトークン数をカウント
         # これは正確なトークン数ではないが、大体のトークン数をカウントすることができる
@@ -120,6 +120,10 @@ def calc_and_display_costs():
 
     input_cost = MODEL_PRICES['input'][st.session_state.model_name] * input_count
     output_cost = MODEL_PRICES['output'][st.session_state.model_name] * output_count
+    if "gemini" in st.session_state.model_name and (input_count + output_count) > 128000:
+        input_cost *= 2
+        output_cost *= 2
+
     cost = output_cost + input_cost
 
     st.sidebar.markdown("## Costs")
