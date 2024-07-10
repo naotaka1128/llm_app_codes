@@ -31,7 +31,7 @@
 
 - このレポジトリでは各章のアプリケーションは`load_dotenv`を利用して`.env`ファイルから環境変数を読み込みます。
   - そのため、事前に環境変数を設定しておく必要があります。
-  - `load_dotenv`を利用しない場合は、`from dotenv import load_dotenv; load_dotenv()`の行を削除してください。
+  - `load_dotenv`を利用しない場合は、`from dotenv import load_dotenv; load_dotenv()`の周辺の行を削除してください。
 
 ### (オプション) DevContainerの利用
 
