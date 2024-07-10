@@ -3,8 +3,14 @@ import streamlit as st
 from langchain.chat_models import ChatOpenAI
 from langchain_community.utilities.dalle_image_generator import DallEAPIWrapper
 
-from dotenv import load_dotenv
-load_dotenv()
+###### dotenv を利用しない場合は消してください ######
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    import warnings
+    warnings.warn("dotenv not found. Please make sure to set your environment variables manually.", ImportWarning)
+################################################
 
 
 GPT4V_PROMPT = """

@@ -14,8 +14,14 @@ import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse
 
-from dotenv import load_dotenv
-load_dotenv()
+###### dotenv を利用しない場合は消してください ######
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    import warnings
+    warnings.warn("dotenv not found. Please make sure to set your environment variables manually.", ImportWarning)
+################################################
 
 
 SUMMARIZE_PROMPT = """以下のコンテンツについて、内容を300文字程度でわかりやすく要約してください。
@@ -40,7 +46,7 @@ def init_page():
 
 
 def select_model(temperature=0):
-    models = ("GPT-3.5", "GPT-4", "Claude 3 Sonnet", "Gemini 1.5 Pro")
+    models = ("GPT-3.5", "GPT-4", "Claude 3.5 Sonnet", "Gemini 1.5 Pro")
     model = st.sidebar.radio("Choose a model:", models)
     if model == "GPT-3.5":
         return ChatOpenAI(
@@ -52,10 +58,10 @@ def select_model(temperature=0):
             temperature=temperature,
             model_name="gpt-4o"
         )
-    elif model == "Claude 3 Sonnet":
+    elif model == "Claude 3.5 Sonnet":
         return ChatAnthropic(
             temperature=temperature,
-            model_name="claude-3-sonnet-20240229"
+            model_name="claude-3-5-sonnet-20240620"
         )
     elif model == "Gemini 1.5 Pro":
         return ChatGoogleGenerativeAI(
