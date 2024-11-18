@@ -1,3 +1,3 @@
 import streamlit as st
 
-st.write("Hello world. Let's learn how to build a AI-based app together.")
+st.write("Hello world. Let's learn how to build an AI-based app together.")
